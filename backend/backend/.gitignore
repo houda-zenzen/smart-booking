@@ -1,0 +1,64 @@
+# ========================
+# JAVA / SPRING BOOT
+# ========================
+HELP.md
+target/
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Logs
+*.log
+
+# ========================
+# MAVEN WRAPPER
+# ========================
+.mvn/wrapper/maven-wrapper.jar
+
+# ========================
+# IDE - INTELLIJ
+# ========================
+.idea/
+*.iws
+*.iml
+*.ipr
+
+# ========================
+# VS CODE
+# ========================
+.vscode/
+
+# ========================
+# SYSTEM FILES
+# ========================
+.DS_Store
+Thumbs.db
+
+# ========================
+# NETBEANS / STS
+# ========================
+.nb-gradle/
+nbproject/private/
+nbbuild/
+dist/
+nbdist/
+.springBeans
+.apt_generated
+.classpath
+.project
+.settings
+.factorypath
+.sts4-cache
+
+# ========================
+# ENV FILES (IMPORTANT DEVOPS)
+# ========================
+.env
+
+# ========================
+# DOCKER (optionnel)
+# ========================
+docker-compose.override.yml
