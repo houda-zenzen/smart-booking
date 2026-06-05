@@ -2,19 +2,30 @@ version: '3.8'
 
 services:
 
-  backend:
-    build: .
-    container_name: smartbooking-backend
-    ports:
-      - "8080:8080"
-    depends_on:
-      - mysql
-
   mysql:
-    image: mysql:8
-    container_name: smartbooking-db
+    image: mysql:8.0
+    container_name: smart-mysql
+    restart: always
     environment:
       MYSQL_ROOT_PASSWORD: root
-      MYSQL_DATABASE: smartbooking
+      MYSQL_DATABASE: smart_booking
     ports:
-      - "3306:3306"
+      - "3307:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+
+  backend:
+    image: houdazenzen/smart-booking:latest
+    container_name: smart-backend
+    restart: always
+    ports:
+      - "9090:8080"
+    depends_on:
+      - mysql
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/smart_booking
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
+
+volumes:
+  mysql_data:
